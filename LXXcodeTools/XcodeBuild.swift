@@ -8,22 +8,22 @@
 
 import Foundation
 
-class XcodeBuild {
-    struct BuildSettings {
+public class XcodeBuild {
+    public struct BuildSettings {
         static let sectionHeaderPattern = "\\ABuild settings for action (.+) and target \"?([^\":]+)\"?:\\z"
         static let settingPattern = "\\A\\s*(.+)\\s=\\s(.+)\\z"
         
-        enum Key : String {
+        public enum Key : String {
             case InfoPlistFile = "INFOPLIST_FILE"
         }
         
         let settings: [String: [String: String]]
         
-        init(settings: [String: [String: String]]) {
+        public init(settings: [String: [String: String]]) {
             self.settings = settings
         }
         
-        init?(output: String) {
+        public init?(output: String) {
             guard
                 let sectionHeaderRegex = try? NSRegularExpression(pattern: self.dynamicType.sectionHeaderPattern, options: []),
                 let settingRegex = try? NSRegularExpression(pattern: self.dynamicType.settingPattern, options: [])
@@ -48,7 +48,7 @@ class XcodeBuild {
             self.init(settings: settings)
         }
         
-        init?(workspace optWorkspace: String?, scheme optScheme: String?) {
+        public init?(workspace optWorkspace: String?, scheme optScheme: String?) {
             let task = NSTask()
             task.launchPath = "/usr/bin/xcrun"
             var arguments = [ "xcodebuild", "-showBuildSettings" ]
@@ -72,7 +72,7 @@ class XcodeBuild {
             self.init(output: output)
         }
         
-        func valueForKey(key: Key, target: String) -> String? {
+        public func valueForKey(key: Key, target: String) -> String? {
             return self.settings[target]?[key.rawValue]
         }
     }

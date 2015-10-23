@@ -1,6 +1,6 @@
 {
 	"name": "LXXcodeTools",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"authors": {
 		"Stan Chang Khin Boon": "me@lxcid.com"
@@ -8,7 +8,7 @@
 	"homepage": "https://github.com/lxcid/LXXcodeTools",
 	"source": {
 		"git": "https://github.com/lxcid/LXXcodeTools.git",
-		"tag": "0.0.1"
+		"tag": "0.0.2"
 	},
 	"summary": "The bridge between Xcode CLI Tools and Swift.",
 	"platforms": {
