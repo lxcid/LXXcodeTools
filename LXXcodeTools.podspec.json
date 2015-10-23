@@ -12,7 +12,6 @@
 	},
 	"summary": "The bridge between Xcode CLI Tools and Swift.",
 	"platforms": {
-		"ios": "8.0",
 		"osx": "10.10"
 	},
 	"source_files": "LXXcodeTools/*.swift"
